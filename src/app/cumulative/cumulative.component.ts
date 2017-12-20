@@ -1,9 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {MapService} from "../map.service";
-import {ChartService} from "../chart.service";
-import {SimpleTimer} from "ng2-simple-timer";
-import {DataService} from "../csv-reader.service";
-import {absFloor} from "ngx-bootstrap/bs-moment/utils";
+import {MapService} from '../map.service';
+import {SimpleTimer} from 'ng2-simple-timer';
+import {DataService} from '../csv-reader.service';
+import {absFloor} from 'ngx-bootstrap/bs-moment/utils';
 
 @Component({
   selector: 'app-cumulative',
@@ -98,8 +97,7 @@ export class CumulativeComponent implements OnInit {
     return `${year}/${week}`;
   }
 
-  constructor(private chartService: ChartService,
-              private mapService: MapService,
+  constructor(private mapService: MapService,
               private dataService: DataService) {
   }
 

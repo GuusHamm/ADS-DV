@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {DataService} from './csv-reader.service';
 import {BsDropdownModule, ButtonsModule, ModalModule} from 'ngx-bootstrap';
-import {ChartService} from './chart.service';
+import {MapService} from './map.service';
 import {MapComponent} from './map/map.component';
 import {ChartModule} from 'angular2-highcharts';
 import {NouisliderModule} from 'ng2-nouislider';
@@ -55,7 +55,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     DataService,
-    ChartService,
+    MapService,
     SimpleTimer,
   ],
   bootstrap: [AppComponent]

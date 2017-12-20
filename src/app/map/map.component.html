@@ -3,7 +3,7 @@
     <div *ngIf="ready" class="card  bg-light">
       <div class="card-body">
         <div class="card-title">
-          <h4 class="text-uppercase">Map for {{extractMapDate(someRange)}}</h4>
+          <h4 class="text-uppercase">Map for {{ extractMapDate(someRange) }}</h4>
         </div>
         <div class="card-text">
           <chart type="Map" [options]="chartOptions" (load)="saveChartInstance($event.context)" id="map">
@@ -44,7 +44,7 @@
                   <label for="dataSelector">Data selection</label>
                   <select name="dataSelector" id="dataSelector" (change)="onSelectChange($event.target.value)"
                           class="form-control">
-                    <option *ngFor="let selector of selectors" value="{{selector}}">{{selector}}</option>
+                    <option *ngFor="let selector of selectors" value="{{selector}}">{{ selector }}</option>
                   </select>
                 </div>
               </div>

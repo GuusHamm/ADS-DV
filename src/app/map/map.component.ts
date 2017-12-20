@@ -1,13 +1,12 @@
 import {Component, ElementRef, OnInit, TemplateRef, ViewChild, ViewEncapsulation} from '@angular/core';
-import {ChartService} from '../chart.service';
 import {MapService} from '../map.service';
 import {DataService} from '../csv-reader.service';
 import {absFloor} from 'ngx-bootstrap/bs-moment/utils';
-import {Observable} from "rxjs/Observable";
-import "rxjs/add/observable/timer";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
-import {SimpleTimer} from "ng2-simple-timer";
-import {BsModalRef, BsModalService} from "ngx-bootstrap";
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/timer';
+import {TimerObservable} from 'rxjs/observable/TimerObservable';
+import {SimpleTimer} from 'ng2-simple-timer';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-map',
@@ -98,8 +97,7 @@ export class MapComponent implements OnInit {
   };
 
 
-  constructor(private chartService: ChartService,
-              private mapService: MapService,
+  constructor(private mapService: MapService,
               private dataService: DataService,
               private simpleTimer: SimpleTimer) {
   }
@@ -156,12 +154,12 @@ export class MapComponent implements OnInit {
 
   onAutoPlayChange(value) {
     this.autoPlay = !this.autoPlay;
-    console.log('triggered')
-    console.log(this.autoPlay)
+    console.log('triggered');
+    console.log(this.autoPlay);
     if (this.autoPlay === true) {
       this.simpleTimer.newTimer('AutoPlay', 0.05);
       this.simpleTimer.subscribe('AutoPlay', () => {
-        console.log('tick')
+        console.log('tick');
         if (this.someRange < this.maxTimeValue) {
           this.someRange++;
           this.onSliderChange(this.someRange);
