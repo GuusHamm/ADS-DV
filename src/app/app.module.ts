@@ -1,18 +1,68 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+declare var require: any;
 
+import {AppComponent} from './app.component';
+import {DataService} from './csv-reader.service';
+import {BsDropdownModule, ButtonsModule, ModalModule} from 'ngx-bootstrap';
+import {ChartService} from './chart.service';
+import {MapService} from './map.service';
+import {MapComponent} from './map/map.component';
+import {ChartModule} from 'angular2-highcharts';
+import {NouisliderModule} from 'ng2-nouislider';
+import {SimpleTimer} from 'ng2-simple-timer';
+import { CumulativeComponent } from './cumulative/cumulative.component';
 
-import { AppComponent } from './app.component';
-
-
+const appRoutes: Routes = [
+  {
+    path: 'map',
+    component: MapComponent
+  },
+  {
+    path: 'cumulative',
+    component: CumulativeComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/map',
+    pathMatch: 'full'
+  },
+];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapComponent,
+    CumulativeComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: false},
+    ),
+    ChartModule.forRoot(
+      require('highcharts'),
+      require('highcharts/modules/map')
+    ),
+    BsDropdownModule.forRoot(),
+    ButtonsModule.forRoot(),
+    NouisliderModule,
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    DataService,
+    ChartService,
+    MapService,
+    SimpleTimer,
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+
+export class AppModule {
+}

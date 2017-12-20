@@ -1,0 +1,62 @@
+<div class="row">
+  <div #contentDiv class="col-md-8">
+    <div *ngIf="ready" class="card  bg-light">
+      <div class="card-body">
+        <div class="card-title"><h4 style="text-transform: uppercase">Map</h4></div>
+        <div class="card-text">
+          <chart type="Map" [options]="chartOptions" (load)="saveChartInstance($event.context)">
+            <series (afterAnimate)="onChartRender($event)">
+              <point (click)="onPointSelect($event)"></point>
+            </series>
+          </chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 sidebar">
+    <div class="card bg-light">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 style="text-transform: uppercase">Map controls</h4>
+        </div>
+        <div class="card-text">
+          <div style="flex-direction: column" class="sidebar-content">
+            <form>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="dataSelector">Data selection</label>
+                  <select name="dataSelector" id="dataSelector" (change)="onSelectChange($event.target.value)"
+                          class="form-control">
+                    <option *ngFor="let selector of selectors" value="{{selector}}">{{selector}}</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="card bg-light">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 style="text-transform: uppercase">County information</h4>
+        </div>
+        <div class="card-text" #detailDiv>
+          <div *ngIf="selectedCounty == null">
+            <br>
+            <p class="lead">Select a county to view extra information</p>
+          </div>
+          <div *ngIf="selectedCounty != null">
+            <chart [options]="detailChartOptions" (load)="saveDetailChartInstance($event.context)">
+              <series>
+                <point (click)="onDetailPointSelect($event)"></point>
+              </series>
+            </chart>
+            <button class="btn btn-danger" (click)="selectedCounty = null">Clear Selected</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

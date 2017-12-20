@@ -1,0 +1,98 @@
+<div class="row">
+  <div #contentDiv class="col-md-8">
+    <div *ngIf="ready" class="card  bg-light">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 class="text-uppercase">Map for {{extractMapDate(someRange)}}</h4>
+        </div>
+        <div class="card-text">
+          <chart type="Map" [options]="chartOptions" (load)="saveChartInstance($event.context)" id="map">
+            <series (afterAnimate)="onChartRender($event)">
+              <point (click)="onPointSelect($event)"></point>
+            </series>
+          </chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 sidebar">
+    <div class="card bg-light">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 class="text-uppercase">Map controls</h4>
+        </div>
+        <div class="card-text">
+          <div style="flex-direction: column" class="sidebar-content">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-8">
+                  <label for="weekSlider">Select a week</label>
+                  <nouislider [connect]="[true, false]" [min]="1" [max]="maxTimeValue" [step]="1" [tooltips]="true"
+                              [(ngModel)]="someRange"
+                              (ngModelChange)="onSliderChange($event)" id="weekSlider" name="weekSlider" style="background: #007bff !important"></nouislider>
+                </div>
+                <div class="form-group col-md-3 offset-1">
+                  <label for="autoPlay">Auto play</label>
+                  <button class="btn btn-primary btn-block" type="button" btnCheckbox (click)="onAutoPlayChange($event)"
+                          id="autoPlay" name="autoPlay ">
+                    <i class="fas fa-play"></i> / <i class="fas fa-pause"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="dataSelector">Data selection</label>
+                  <select name="dataSelector" id="dataSelector" (change)="onSelectChange($event.target.value)"
+                          class="form-control">
+                    <option *ngFor="let selector of selectors" value="{{selector}}">{{selector}}</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="card bg-light">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 class="text-uppercase">County information</h4>
+        </div>
+        <div class="card-text" #detailDiv>
+          <div *ngIf="selectedCounty == null">
+            <br>
+            <p class="lead">Select a county to view extra information</p>
+          </div>
+          <div *ngIf="selectedCounty != null">
+            <chart [options]="detailChartOptions" (load)="saveDetailChartInstance($event.context)">
+              <series>
+                <point (click)="onDetailPointSelect($event)"></point>
+              </series>
+            </chart>
+            <button class="btn btn-danger" (click)="selectedCounty = null">Clear Selected</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div *ngIf="selectedCounty == null" class="card bg-light">
+      <div class="card-body">
+        <div class="card-text">
+          <p class="lead">
+            This is a visualization of the inspections performed by the New York Food Service Establishment per week.
+          </p>
+          <p>
+            Specifically this visualisation shows the length of an inspection comment and the amount of (critical) violations in an inspection.
+            This chart shows <span class="text-primary">data per week</span>.
+            To move to a different week <span class="text-primary">move the slider above</span>.
+            If you want to view the changes over time you can use the auto play button.
+            Use the <span class="text-primary">data selection selector to change shown data</span>.
+            Clicking on a county will reveal data over time for the specific county.
+          </p>
+          <p>For a less detailed view see the <a class="btn btn-outline-primary" href="cumulative">cumulative map</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import "~nouislider/distribute/nouislider.min.css";
+@import '../node_modules/highcharts/css/highcharts';
+
+.highcharts-background {
+  fill: #f8f9fa;
+}
