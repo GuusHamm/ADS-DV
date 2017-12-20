@@ -17,7 +17,7 @@ export class CumulativeComponent implements OnInit {
   detailDiv: ElementRef;
 
   maxYValue = 100;
-  averageData;
+  averageData = null;
 
   selectors = ['COMMENT_LENGTH', 'COMMENT_LENGTH_PER_VIOLATION', 'TOTAL # VIOLATIONS', 'TOTAL # CRITICAL VIOLATIONS'];
   identifier = 'COMMENT_LENGTH';
@@ -28,7 +28,7 @@ export class CumulativeComponent implements OnInit {
   countyDataPerWeek = null;
   mapData: Object;
   chart: any;
-  detailChart: any;
+  detailChart: any = null;
 
   chartOptions: any = {
     chart: {
@@ -111,7 +111,7 @@ export class CumulativeComponent implements OnInit {
         const data = this.extractData(countyData, this.identifier);
 
         this.chartOptions.chart.width = this.contentDiv.nativeElement.offsetWidth - 100;
-        this.chartOptions.chart.height = '800px';
+        this.chartOptions.chart.height = '790px';
         this.maxYValue = this.extractMaxLenght();
         this.chartOptions.colorAxis.max = this.maxYValue;
         this.chartOptions.series = [{
@@ -123,9 +123,7 @@ export class CumulativeComponent implements OnInit {
       });
       this.dataService.getDataPerCounty().subscribe(countyDataPerWeek => {
         this.countyDataPerWeek = countyDataPerWeek;
-        if (this.averageData == null) {
-          this.averageData = this.getAverage(this.countyDataPerWeek);
-        }
+        this.averageData = this.getAverage(this.countyDataPerWeek);
       });
     });
   }
@@ -135,7 +133,7 @@ export class CumulativeComponent implements OnInit {
   }
 
   onChartRender(chartInstance) {
-    if (this.averageData == null && this.countyDataPerWeek != null) {
+    if (this.averageData === null && this.countyDataPerWeek !== null) {
       this.averageData = this.getAverage(this.countyDataPerWeek);
     }
   }
@@ -165,7 +163,7 @@ export class CumulativeComponent implements OnInit {
     });
 
     if (this.selectedCounty != null) {
-      this.updateDetailChart();
+      this.updateDetailChart(this.selectedCounty);
     }
     this.updateChart(data);
   }
@@ -182,25 +180,25 @@ export class CumulativeComponent implements OnInit {
     const countyData = this.extractCountyData(county, this.countyDataPerWeek);
     const dates = Array.from(new Set(countyData.map(it => it['YEAR_WEEK'])));
     const data = countyData.map(it => it[this.identifier]);
-
     this.detailChartOptions.series = [{
       data: data,
-      name: county,
+      name: county.toUpperCase(),
     }, {
-      data: this.averageData,
-      name: 'average',
+      data: this.averageData[0],
+      name: 'AVERAGE',
     }];
+
     this.detailChartOptions.xAxis.categories = dates;
     this.detailChartOptions.yAxis.max = this.extractMaxLenght(this.identifier, this.countyDataPerWeek);
 
     this.detailChartOptions.chart.width = this.detailDiv.nativeElement.offsetWidth;
-    this.detailChartOptions.chart.height = '570px';
+    this.detailChartOptions.chart.height = '590px';
 
     if (this.detailChart != null) {
       this.detailChart.update(this.detailChartOptions);
-
     }
   }
+
   private extractTimeData(yearWeek, identifier = this.identifier, data = this.countyData) {
     return this.extractData(data.filter(entry => entry.YEAR_WEEK === yearWeek), identifier);
   }
@@ -218,17 +216,19 @@ export class CumulativeComponent implements OnInit {
   private getAverage(data = this.countyDataPerWeek) {
     const categories = Array.from(new Set(data.map(it => it.YEAR_WEEK)));
     const averages = [];
+    const cumulative = [];
 
     categories.forEach(categorie => {
       const timeData = data
         .filter(it => it.YEAR_WEEK === categorie)
         .map(it => it[this.identifier]);
       const sum = timeData.reduce((a, b) => a + b);
+      cumulative.push([categorie, sum]);
       const avg = sum / timeData.length;
       averages.push(avg);
     });
 
-    return averages;
+    return [averages, cumulative];
   }
 
   private extractMaxLenght(identifier = this.identifier, data = this.countyData) {

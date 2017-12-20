@@ -220,16 +220,16 @@ export class MapComponent implements OnInit {
 
     this.detailChartOptions.series = [{
       data: data,
-      name: county,
+      name: county.toUpperCase(),
     }, {
-      data: this.averageData,
-      name: 'average',
+      data: this.averageData[0],
+      name: 'AVERAGE',
     }];
     this.detailChartOptions.xAxis.categories = dates;
-    this.detailChartOptions.yAxis.max = this.maxYValue;
+    this.detailChartOptions.yAxis.max = this.extractMaxLenght();
 
     this.detailChartOptions.chart.width = this.detailDiv.nativeElement.offsetWidth;
-    this.detailChartOptions.chart.height = '460px';
+    this.detailChartOptions.chart.height = '490px';
 
     if (this.detailChart != null) {
       this.detailChart.update(this.detailChartOptions);
@@ -261,15 +261,17 @@ export class MapComponent implements OnInit {
   private getAverage(data = this.countyData) {
     const categories = Array.from(new Set(data.map(it => it.YEAR_WEEK)));
     const averages = [];
+    const cumulative = [];
 
     categories.forEach(categorie => {
       const timeData = this.extractTimeData(categorie).map(it => it.value);
       const sum = timeData.reduce((a, b) => a + b);
+      cumulative.push([categorie, sum]);
       const avg = sum / timeData.length;
       averages.push([categorie, avg]);
     });
 
-    return averages;
+    return [averages, cumulative];
   }
 
   private extractMaxLenght(identifier = this.identifier, data = this.countyData) {

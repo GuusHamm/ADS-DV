@@ -57,20 +57,26 @@
     <div class="card bg-light">
       <div class="card-body">
         <div class="card-title">
-          <h4 class="text-uppercase">County information</h4>
+          <div class="row">
+            <div class="col-md-11">
+              <h4 class="text-uppercase">County information</h4>
+            </div>
+            <div *ngIf="selectedCounty !== null" class="col-md-1">
+              <button class="btn btn-default btn-sm" (click)="selectedCounty = null"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
         </div>
         <div class="card-text" #detailDiv>
-          <div *ngIf="selectedCounty == null">
+          <div *ngIf="selectedCounty === null">
             <br>
             <p class="lead">Select a county to view extra information</p>
           </div>
-          <div *ngIf="selectedCounty != null">
+          <div *ngIf="selectedCounty !== null">
             <chart [options]="detailChartOptions" (load)="saveDetailChartInstance($event.context)">
               <series>
                 <point (click)="onDetailPointSelect($event)"></point>
               </series>
             </chart>
-            <button class="btn btn-danger" (click)="selectedCounty = null">Clear Selected</button>
           </div>
         </div>
       </div>
@@ -80,7 +86,7 @@
       <div class="card-body">
         <div class="card-text">
           <p class="lead">
-            This is a visualization of the inspections performed by the New York Food Service Establishment per week.
+            This is a visualization of the inspections performed by the New York Food Service Establishment per week. <i class="fas fa-info-circle fa-lg text-primary"></i>
           </p>
           <p>
             Specifically this visualisation shows the length of an inspection comment and the amount of (critical) violations in an inspection.
@@ -90,7 +96,7 @@
             Use the <span class="text-primary">data selection selector to change shown data</span>.
             Clicking on a county will reveal data over time for the specific county.
           </p>
-          <p>For a less detailed view see the <a class="btn btn-outline-primary" href="cumulative">cumulative map</a></p>
+          <p>For a map showing all data for a county combined see the <a class="btn btn-outline-primary" href="cumulative">cumulative map</a></p>
         </div>
       </div>
     </div>

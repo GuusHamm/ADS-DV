@@ -3,18 +3,16 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-declare var require: any;
-
 import {AppComponent} from './app.component';
 import {DataService} from './csv-reader.service';
 import {BsDropdownModule, ButtonsModule, ModalModule} from 'ngx-bootstrap';
 import {ChartService} from './chart.service';
-import {MapService} from './map.service';
 import {MapComponent} from './map/map.component';
 import {ChartModule} from 'angular2-highcharts';
 import {NouisliderModule} from 'ng2-nouislider';
 import {SimpleTimer} from 'ng2-simple-timer';
-import { CumulativeComponent } from './cumulative/cumulative.component';
+import {CumulativeComponent} from './cumulative/cumulative.component';
+declare var require: any;
 
 const appRoutes: Routes = [
   {
@@ -31,6 +29,7 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +56,6 @@ const appRoutes: Routes = [
   providers: [
     DataService,
     ChartService,
-    MapService,
     SimpleTimer,
   ],
   bootstrap: [AppComponent]
