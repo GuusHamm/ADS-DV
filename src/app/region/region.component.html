@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <!--<div *ngIf="ready" class="col-md-8">-->
+      <!--<div [ng2-highcharts]="chartOptions"></div>-->
+    <!--</div>-->
+    <div class="col-md-3">
+      <form>
+        <div class="form-group">
+          <label for="dataSelector">Choose a selector</label>
+          <select name="dataSelector" id="dataSelector" (change)="onSelectorChange($event.target.value)" class="form-control">
+            <option *ngFor="let selector of selectors" value="{{selector}}">{{selector}}</option>
+          </select>
+          <label for="chartType">Choose a selector</label>
+          <select name="chartType" id="chartType" (change)="onChartTypeChange($event.target.value)" class="form-control">
+            <option *ngFor="let chartType of chartTypes" value="{{chartType}}">{{chartType}}</option>
+          </select>
+        </div>
+        <div *ngFor="let serie of chartOptions.series" class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="serie.visible" name="{{serie.name}}">{{serie.name}}
+          </label>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
