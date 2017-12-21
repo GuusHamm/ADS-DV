@@ -13,7 +13,6 @@ import {NouisliderModule} from 'ng2-nouislider';
 import {SimpleTimer} from 'ng2-simple-timer';
 import {CumulativeComponent} from './cumulative/cumulative.component';
 declare var require: any;
-
 const appRoutes: Routes = [
   {
     path: 'map',

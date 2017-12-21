@@ -27,7 +27,12 @@ export class MapComponent implements OnInit {
 
   autoPlay = false;
 
-  selectors = ['COMMENT_LENGTH', 'COMMENT_LENGTH_PER_VIOLATION', 'TOTAL # VIOLATIONS', 'TOTAL # CRITICAL VIOLATIONS'];
+  selectors = [
+    ['COMMENT_LENGTH', 'Commment length'],
+    ['COMMENT_LENGTH_PER_VIOLATION', 'Comment length per violation'],
+    ['TOTAL # VIOLATIONS', 'Total number of violations'],
+    ['TOTAL # CRITICAL VIOLATIONS', 'Total number of critical']
+  ];
   identifier = 'COMMENT_LENGTH';
   selectedCounty = null;
 

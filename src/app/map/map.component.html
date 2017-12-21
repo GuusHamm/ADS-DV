@@ -29,7 +29,8 @@
                   <label for="weekSlider">Select a week</label>
                   <nouislider [connect]="[true, false]" [min]="1" [max]="maxTimeValue" [step]="1" [tooltips]="true"
                               [(ngModel)]="someRange"
-                              (ngModelChange)="onSliderChange($event)" id="weekSlider" name="weekSlider" style="background: #007bff !important"></nouislider>
+                              (ngModelChange)="onSliderChange($event)" id="weekSlider" name="weekSlider"
+                              style="background: #007bff !important"></nouislider>
                 </div>
                 <div class="form-group col-md-3 offset-1">
                   <label for="autoPlay">Auto play</label>
@@ -44,7 +45,7 @@
                   <label for="dataSelector">Data selection</label>
                   <select name="dataSelector" id="dataSelector" (change)="onSelectChange($event.target.value)"
                           class="form-control">
-                    <option *ngFor="let selector of selectors" value="{{selector}}">{{ selector }}</option>
+                    <option *ngFor="let selector of selectors" value="{{selector[0]}}">{{ selector[1] }}</option>
                   </select>
                 </div>
               </div>
@@ -62,7 +63,7 @@
               <h4 class="text-uppercase">County information</h4>
             </div>
             <div *ngIf="selectedCounty !== null" class="col-md-1">
-              <button class="btn btn-default btn-sm" (click)="selectedCounty = null"><i class="fas fa-times"></i></button>
+              <a (click)="selectedCounty = null"><i class="fas fa-times" ></i></a>
             </div>
           </div>
         </div>
@@ -86,17 +87,20 @@
       <div class="card-body">
         <div class="card-text">
           <p class="lead">
-            This is a visualization of the inspections performed by the New York Food Service Establishment per week. <i class="fas fa-info-circle fa-lg text-primary"></i>
+            This is a visualization of the inspections performed by the New York Food Service Establishment per week. <i
+            class="fas fa-info-circle fa-lg text-primary"></i>
           </p>
           <p>
-            Specifically this visualisation shows the length of an inspection comment and the amount of (critical) violations in an inspection.
+            Specifically this visualisation shows the length of an inspection comment and the amount of (critical)
+            violations in an inspection.
             This chart shows <span class="text-primary">data per week</span>.
             To move to a different week <span class="text-primary">move the slider above</span>.
             If you want to view the changes over time you can use the auto play button.
             Use the <span class="text-primary">data selection selector to change shown data</span>.
             Clicking on a county will reveal data over time for the specific county.
           </p>
-          <p>For a map showing all data for a county combined see the <a class="btn btn-outline-primary" href="cumulative">cumulative map</a></p>
+          <p>For a map showing all data for a county combined see the <a class="btn btn-outline-primary"
+                                                                         href="cumulative">cumulative map</a></p>
         </div>
       </div>
     </div>
