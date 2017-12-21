@@ -1,0 +1,67 @@
+=count=critical=group_code=long_code=short_code
+0=5944.0=False=15=item 15a-   floors, walls, ceilings, not smooth, properly constructed, in disrepair, dirty surfaces=15a
+1=4741.0=False=8=item  8a-   food not protected during storage, preparation, display, transportation and service, from potential sources of contamination (e.g., food uncovered, mislabeled, stored on floor, missing or inadequate sneeze guards, food containers double stacked)=8a
+2=4405.0=False=11=item 11d-   non food contact surfaces of equipment not clean=11d
+3=3833.0=False=10=item 10b-   non-food contact surfaces and equipment are improperly designed, constructed, installed, maintained (equipment not readily accessible for cleaning, surface not smooth finish)=10b
+4=3787.0=False=15=item 15b-   lighting and ventilation inadequate, fixtures not shielded, dirty ventilation hoods, ductwork, filters, exhaust fans=15b
+5=2391.0=False=12=item 12e-   handwashing facilities inaccessible, improperly located, dirty, in disrepair, improper fixtures, soap, and single service towels or hand drying devices missing=12e
+6=2376.0=False=8=item  8e-   accurate thermometers not available or used to evaluate refrigerated or heated storage temperatures=8e
+7=1891.0=False=11=item 11c-   food contact surfaces not washed, rinsed and sanitized after each use and following any time of operations when contamination may have occurred=11c
+8=1718.0=False=12=item 12c-   plumbing and sinks not properly sized, installed, maintained=12c
+9=1631.0=False=11=item 11b-   wiping cloths dirty, not stored properly in sanitizing solutions=11b
+10=1459.0=False=10=item 10a-   food (ice) contact surfaces are improperly designed, constructed, installed, located (cracks, open seams, pitted surfaces, tin cans reused, uncleanable or corroded food contact surfaces)=10a
+11=1426.0=False=14=item 14a-   insects, rodents present=14a
+12=1379.0=False=11=item 11a-   manual facilities inadequate, technique incorrect=11a
+13=1362.0=False=12=item 12d-   toilet facilities inadequate, inconvenient, dirty, in disrepair, toilet paper missing, not self-closing doors, missing hand wash signs=12d
+14=1275.0=False=16=item 16-   miscellaneous, economic violation, choking poster, training.=16
+15=1129.0=False=14=item 14b-   effective measures not used to control entrance (rodent-, insect-proof contruction). harborage areas available for rodents, insects and other vermin=14b
+16=1112.0=False=8=item  8b-   in use food dispensing utensils improperly stored=8b
+17=752.0=False=8=item  8d-   single service items reused, improperly stored, dispensed, not used when required=8d
+18=707.0=True=5=item  5a-  critical violation [red] potentially hazardous foods are not kept at or below 45of during cold holding, except smoked fish not kept at or below 38of during cold holding.=5a
+19=617.0=True=2=item  2c-  critical violation [red] cooked or prepared foods are subject to cross-contamination from raw foods.=2c
+20=611.0=True=4=item  4a-  critical violation [red] toxic chemicals are improperly labeled, stored or used so that contamination of food can occur.=4a
+21=562.0=True=5=item  5c-  critical violation [red] potentially hazardous foods are not stored under refrigeration except during necessary preparation or approved precooling procedures (room temperature storage).=5c
+22=545.0=False=8=item  8c-   improper use and storage of clean, sanitized equipment and utensils=8c
+23=499.0=False=15=item 15c-   premises littered, unnecessary equipment and article present, living quarters no completely separated for food service operations, live animals, birds and pets not excluded=15c
+24=460.0=False=12=item 12a-   hot, cold running water not provided, pressure inadequate=12a
+25=459.0=True=6=item  6a-  critical violation [red] potentially hazardous foods are not kept at or above 140of during hot holding.=6a
+26=443.0=False=14=item 14c-   pesticide application not supervised by a certified applicator=14c
+27=413.0=True=5=item  5b-  critical violation [red] potentially hazardous foods are not cooled by an approved method where the food temperature can be reduced from 120of to 70of or less within two hours and 70of to 45of within four hours.=5b
+28=396.0=False=8=item  8f-   improper thawing procedures used=8f
+29=367.0=False=13=item 13b-   garbage storage areas not properly constructed or maintained, creating a nuisance=13b
+30=346.0=True=2=item  2e-  critical violation [red] accurate thermometers not available or used to evaluate potentially hazardous food temperatures during cooking, cooling, reheating and holding.=2e
+31=321.0=False=9=item  9b-   tobacco is used=9b
+32=292.0=True=5=item  5e-  critical violation [red] enough refrigerated storage equipment is not present, properly designed, maintained or operated so that all potentially hazardous foods are cooled properly and stored below 45of as required.=5e
+33=277.0=True=1=item  1h-  critical violation [red] food from unapproved source, spoiled, adulterated on premises.=1h
+34=229.0=False=13=item 13a-   adequate, leakproof, non-absorbent, vermin-proof, covered containers not provided where needed=13a
+35=190.0=True=1=item  1d-  critical violation [red] canned foods found in poor conditions (leakers, severe dents, rusty, swollen cans)=1d
+36=155.0=True=3=item  3c-  critical violation [red] food workers do not use proper utensils to eliminate bare hand contact with cooked or prepared foods.=3c
+37=147.0=False=9=item  9c-   hair is improperly restrained=9c
+38=127.0=True=1=item  1b-  critical violation [red] water/ice: unsafe, unapproved sources, cross connections=1b
+39=89.0=True=7=item  7f-  critical violation [red] precooked, refrigerated potentially hazardous food is not reheated to 165of or above within two hours.=7f
+40=55.0=False=15=item 15d-   improper storage of cleaning equipment, linens, laundry unacceptable=15d
+41=51.0=False=9=item  9d-   dressing rooms dirty, not provided, improperly located=9d
+42=50.0=True=1=item  1f-  critical violation [red] shellfish not from approved sources, improperly tagged/labeled, tags not  retained 90 days.=1f
+43=47.0=False=12=item 12b-   improperly functioning on-site sewage disposal system, improper=12b
+44=41.0=True=6=item  6b-  critical violation [red] enough hot holding equipment is not present, properly designed, maintained and operated to keep hot foods above 140of.=6b
+45=37.0=True=1=item  1c-  critical violation [red] home canned goods, or canned goods from unapproved processor found  on premises=1c
+46=30.0=True=4=item  4c-  critical violation [red] foods or food area/public area contamination by sewage or drippage from waste lines.=4c
+47=28.0=True=5=item  5d-  critical violation [red] potentially hazardous foods such as salads prepared from potatoes or macaroni are not prepared as recommended using prechilled ingredients and not  prechilled to 45of or less as recommended before they are stored on buffet lines.=5d
+48=26.0=True=2=item  2b-  critical violation [red] food workers prepare raw and cooked or ready to eat food products without 'thorough handwashing and sanitary glove changing in between.=2b
+49=20.0=True=3=item  3b-  critical violation [red] food workers do not wash hands thoroughly after visiting the toilet, coughing, sneezing, smoking or otherwise contaminating their hands.=3b
+50=18.0=True=7=item  7a-  critical violation [red] all poultry, poultry stuffings, stuffed meats and stuffings containing meat are not heated to 165of or above.=7a
+51=17.0=True=1=item  1g-  critical violation [red] cracked/dirty fresh eggs, liquid or frozen eggs and powdered eggs not pasteurized.=1g
+52=15.0=True=2=item  2a-  critical violation [red] prepared food products contact equipment or work surfaces which have had prior contact with raw foods and where washing and sanitizing of the food contact surface has not occurred to prevent contamination=2a
+53=14.0=False=9=item  9a-   inadequate personal cleanliness=9a
+54=11.0=False=8=item  8g-   raw foods not properly washing prior to serving=8g
+55=10.0=True=7=item  7e-  critical violation [red] other potentially hazardous foods requiring cooking are not heated to 140of or above.=7e
+56=9.0=True=1=item  1e-  critical violation [red] meat and meat products not from approved plants.=1e
+57=8.0=True=7=item  7g-  critical violation [red] commercially processed precooked potentially hazardous foods are not heated to 140of or above within two hours.=7g
+58=8.0=True=2=item  2d-  critical violation [red] unwrapped/potentially hazardous foods are reserved.=2d
+59=6.0=True=1=item  1a-  critical violation [red] unpasteurized milk and milk products used=1a
+60=3.0=True=7=item  7d-  critical violation [red] all ground meat and foods containing ground meat are not heated to 158of or above except by consumer request.=7d
+61=1.0=True=3=item  3a-  critical violation [red] food workers prepare foods when ill with a disease transmissible by foods such as: diarrhea, hepatitis, acute respiratory infections, vomiting or have infected cuts or burns on their hands.=3a
+62=1.0=False=18=item 18-   equipment not in good repair or maintained, not easily cleanable, unsuitably placed [14-4.102, 14-4.103(b), 14-4.105]=18
+63=1.0=False=18=item 18-   equipment not in good repair or maintained, not easily cleanable, unsuitably placed.=18
+64=1.0=True=7=item  7b-  critical violation [red] all pork or any food containing pork is not heated to 150of or above.=7b
+65=1.0=True=4=item  4b-  critical violation [red] acid foods are stored in containers or pipes that consist of toxic metals.=4b
